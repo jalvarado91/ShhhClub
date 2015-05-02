@@ -1,3 +1,71 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+@import "susy";
+
+ @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic);
+ $font-family-base: 'Lato', sans-serif;
+
+ $mobile: 320px;
+ $tablet: 500px;
+ $laptop: 720px;
+
+ @mixin img-responsive($display:block) {
+  display: $display;
+  width: 100% \9; // Force IE10 and below to size SVG images correctly
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: ""; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+html{
+  @include border-box-sizing;
+}
+
+.row{
+  @include clearfix();
+}
+
+$susy: (
+  columns: 12,
+    container: 1200px,
+  global-box-sizing: border-box 
+);
+
+
+body{
+	font-size: 16px;
+}
+
+/* Queue Box */
+$red : red;
+.qbox{
+
+}
+
+.sidebar{
+	@include span(3 of 12);
+	@include clearfix();
+}

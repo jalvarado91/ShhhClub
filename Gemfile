@@ -29,6 +29,9 @@ gem 'react-rails' # JSX Support
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin] # Rails Core Windows Dependency, Provides Time Zone Info
 gem 'thin' # Use thin instead of webrick
+gem 'normalize-rails'
+gem 'susy'
+gem 'breakpoint'
 
 
 group :development, :test do
