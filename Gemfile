@@ -31,6 +31,8 @@ gem 'thin' # Use thin instead of webrick
 gem 'devise' # Devise our users
 gem 'omniauth-facebook'
 gem 'omniauth-soundcloud'
+gem 'soundcloud'
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
