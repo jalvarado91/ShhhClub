@@ -26,10 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 ### Libraries
 
 gem 'react-rails' # JSX Support
-
 gem 'tzinfo-data', platforms: [:mingw, :mswin] # Rails Core Windows Dependency, Provides Time Zone Info
 gem 'thin' # Use thin instead of webrick
-
+gem 'devise' # Devise our users
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

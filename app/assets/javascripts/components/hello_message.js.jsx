@@ -5,7 +5,6 @@ var HelloMessage = React.createClass({
 });
 
 
-
 var Timer = React.createClass({
   getInitialState: function() {
     return {secondsElapsed: 0};
