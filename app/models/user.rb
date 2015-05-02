@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_one :room, :foreign_key => :dj_id
   belongs_to :room 
 
+  has_many :likes
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
