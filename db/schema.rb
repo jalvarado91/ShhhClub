@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502213707) do
+ActiveRecord::Schema.define(version: 20150502222132) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "room_id"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20150502213707) do
     t.string   "description"
     t.boolean  "private"
     t.string   "youtube_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "dj_id"
-    t.string   "location"
+    t.decimal  "lat",         precision: 10, scale: 6
+    t.decimal  "lng",         precision: 10, scale: 6
   end
 
   create_table "users", force: :cascade do |t|
