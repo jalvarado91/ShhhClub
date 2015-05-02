@@ -30,6 +30,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin] # Rails Core Windows Dependency, 
 gem 'thin' # Use thin instead of webrick
 gem 'devise' # Devise our users
 gem 'omniauth-facebook'
+gem 'omniauth-soundcloud'
+gem 'soundcloud'
+gem 'pusher'
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -43,7 +47,6 @@ group :development, :test do
 end
 
 group :development do
-
   gem 'awesome_print'
   gem 'better_errors' # Better Errors
   gem 'binding_of_caller' # Better Debugging
