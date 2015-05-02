@@ -9,7 +9,7 @@ Shhhh Club
 
 Shhhh Club is brought to you by The Loud Team.
 
-The Lout Team
+The Loud Team
 ---------------------
 
 **The Loud Team** is:
