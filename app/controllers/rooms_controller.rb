@@ -12,6 +12,11 @@ class RoomsController < ApplicationController
 
   def new
   	@room = Room.new
+
+  respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @events }
+    end
   end
 
   def create

@@ -1,2 +1,17 @@
-<h1>Rooms#create</h1>
+<h1>Rooms#new</h1>
 <p>Find me in app/views/rooms/create.html.erb</p>
+<%= form_for(@room, remote: true) do |f| %>
+	  <%= f.label :title%>
+	  <%= f.text_field :title %><br>
+
+	  <%= f.label :description %>
+	  <%= f.text_field :description %><br>
+
+	  <%= f.label :youtube %><br>
+	  <%= f.text_field :youtube_url%><br>
+
+	  <%= f.label :private %><br>
+	  <%= f.check_box :private%><br>
+
+	  <%= f.submit%>
+<% end %>
