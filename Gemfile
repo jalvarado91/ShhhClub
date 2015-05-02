@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# gem 'react-rails'
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin] # Rails Core Windows Dependency, Provides Time Zone Info
+gem 'thin' # Use thin instead of webrick
+
+
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -40,7 +46,6 @@ group :development do
 end
 
 group :production do
-  gem 'puma'
   gem 'pg' # Postgresql DB
   gem 'rails_12factor' # Heroku asset handler
 end
