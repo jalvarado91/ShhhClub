@@ -32,6 +32,7 @@ gem 'devise' # Devise our users
 gem 'omniauth-facebook'
 gem 'omniauth-soundcloud'
 gem 'soundcloud'
+gem 'pusher'
 
 
 group :development, :test do
