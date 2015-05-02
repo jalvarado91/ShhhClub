@@ -26,12 +26,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 ### Libraries
 
 gem 'react-rails' # JSX Support
-
 gem 'tzinfo-data', platforms: [:mingw, :mswin] # Rails Core Windows Dependency, Provides Time Zone Info
 gem 'thin' # Use thin instead of webrick
+
 gem 'normalize-rails'
 gem 'susy'
 gem 'breakpoint'
+
+
+gem 'devise' # Devise our users
+gem 'omniauth-facebook'
 
 
 group :development, :test do

@@ -5,7 +5,6 @@ var HelloMessage = React.createClass({
 });
 
 
-
 var Timer = React.createClass({
   getInitialState: function() {
     return {secondsElapsed: 0};
@@ -34,12 +33,3 @@ var QBox = React.createClass({
   }
 });
 
-var Sidebar = React.createClass({
-  render: function(){
-    return (
-      <div className="sidebar">
-        <h1> Shhhh.club </h1>
-      </div>
-    );
-  }
-});
