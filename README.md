@@ -9,11 +9,10 @@ Shhhh Club
 
 Shhhh Club is brought to you by The Loud Team.
 
-
-People With Computers
+The Lout Team
 ---------------------
 
-**People With Computers** is:
+**The Loud Team** is:
 
 - [**@Juan Alvarado**](https://twitter.com/jujuco_) <jalvarado91@gmail.com>
 - [**@Julissa Estefania Cotillo**](https://twitter.com/jujuco_) <julissacotillo@gmail.com>
