@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150502213707) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "soundcloudtoken"
     t.integer  "room_id"
   end
 
