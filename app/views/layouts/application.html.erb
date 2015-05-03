@@ -31,6 +31,39 @@
 <%= yield %>
 
 
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $.ajaxSetup({ cache: true });
+    $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+      FB.init({
+        appId: "<%= ENV['facebook_id'] %>",
+        version: 'v2.3' // or v2.0, v2.1, v2.0
+      });
+      $('#loginbutton,#feedbutton').removeAttr('disabled');
+    });
 
+    facebookLogin = function(){
+      FB.login(function(response) {
+        if (response.authResponse) {
+          console.log('Welcome!  Fetching your information.... ');
+          FB.api('/me', function(response) {
+            console.log('Good to see you, ' + response.name + '.');
+          });
+          console.log('Connected! Hitting OmniAuth callback (GET users/auth/facebook/callback)...')
+          // since we have cookies enabled, this request will allow omniauth to parse
+          // out the auth code from the signed request in the fbsr_XXX cookie
+          $.getJSON('users/auth/facebook/callback', function(json) {
+            console.log('Connected! Callback complete.');
+            console.log(JSON.stringify(json));
+          });
+        } else {
+          console.log('User cancelled login or did not fully authorize.');
+        }
+      });
+
+    }
+
+  });
+</script>
 </body>
 </html>
