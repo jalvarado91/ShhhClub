@@ -4,3 +4,110 @@
 title {
 	color: blue; 
 }
+
+.room-view {
+	display: flex;
+	flex-direction: column;
+	.header-flex {
+		background-color: rgba(2, 2, 2, 0.57);
+		padding: 20px 32px;
+	}
+	background: #242323;
+	color: white;
+}
+
+.room-container {
+	display: flex;
+	flex-direction: column;
+	.top {
+		background: lighten(#242323, 5%);
+		padding: 15px; 
+		h3 {
+			font-weight: 300;
+			font-size: 1.2em;
+		}
+	}
+	.middle-container {
+		padding: 15px;
+		display: flex;
+		flex-direction: row;
+		.current-container {
+			flex-grow: 3;
+			.current-song {
+				margin-top: 10px;
+				display: flex;
+				flex-direction: row;
+				position: relative;
+				.song-meta {
+					position: absolute;
+					transform: translate(-50%, -50%);
+					left: 70%;
+					top: 50%;
+					.title {
+						font-size: 2.1em;
+						margin-bottom: 10px;
+					}
+					.artist {
+						text-transform: uppercase;
+						font-weight: 300;
+						letter-spacing: 2px;
+						font-size: 1em;
+					}
+				}
+			}
+		}
+	}
+
+	.room-sidebar {
+		flex-grow: 2;
+		flex-direction: column;
+		display: flex;
+		.dynamicList {
+			bottom: 0;
+			left: 0;
+			overflow: auto;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.user-sidebar {
+			flex-grow: 1;
+			display: block;
+			position: relative;
+
+			.users-container{
+			
+			}
+			.sidebar-user {
+				display: flex;
+				padding: 10px 4px;
+				img {
+					border-radius: 100%;
+					margin-right: 15px;
+				}
+				span {
+					align-self: center;
+					font-size: 1.2em;
+					font-weight: 100;
+				}
+			}
+		}
+		.queue-sidebar {
+			flex-grow: 1;
+			display: block;
+			position: relative;
+			.sidebar-song {
+				padding: 15px 0;
+				span {
+					&.song-name {
+						font-size: 1.3em;
+						font-weight: bold;
+					}
+					display: block;
+					font-size: 1em;
+					font-weight: 300;
+				}
+			}
+		}
+	}
+}

@@ -23,6 +23,20 @@ var Room = React.createClass({
     				name: "Julissa Cotillo",
     				image_thumb: "http://i.imgur.com/ww5oXqO.png"
     			}
+    		],
+    		song_queue: [
+    			{
+    				name: 'Institutionalized',
+    				artist: 'Kendrick Lamar'
+    			},
+    			{
+    				name: 'Fading',
+    				artist: 'Shlohmo'
+    			},
+    			{
+    				name: 'Celebrating Nothing',
+    				artist: 'Phantogram'
+    			},
     		]
     	};
   	},
@@ -48,30 +62,27 @@ var Room = React.createClass({
 	},
     render: function () {
         return (
-        	<div>
-        		<h1>{ this.state.room_data.title }</h1>
-        		<h3>{ this.state.room_data.description } </h3>
-	            <div class="current-container">
-	            	<h3>Now Playing</h3>
-	            	<CurrentSong 
-	            		title="Follow You"
-        				artist="Monogem"
-    					album_url="https://i1.sndcdn.com/artworks-000081163804-gh5yfd-t500x500.jpg" />
+        	<div className="room-container">
+        		<div className="top">
+	        		<h1>{ this.state.room_data.title }</h1>
+	        		<h3>{ this.state.room_data.description } </h3>
+        		</div>
+        		<div className="middle-container">
+		            <div className="current-container">
+		            	<h3>Now Playing</h3>
+		            	<CurrentSong 
+		            		title="Follow You"
+	        				artist="Monogem"
+	    					album_url="https://i1.sndcdn.com/artworks-000081163804-gh5yfd-t500x500.jpg" />
+	            	</div>
+	            	<RoomSidebar>
+	            		<UserSidebar users={this.state.current_users} />
+	            		<QueueSidebar songs={this.state.song_queue} />
+	            	</RoomSidebar>
             	</div>
-            	<RoomSidebar>
-            		<UserSidebar users={this.state.current_users} />
-            	</RoomSidebar>
-	            <div>
-	            	<div>
-	            		<h3>Queue</h3>
-	            		<ul>
-	            			<li>Institutionalized - Kendrick Lamar</li>
-	            			<li>Fading - Shlohmo</li>
-	            			<li>Celebrating Nothing - Phantogram</li>
-						</ul>
-	    			</div>
-	            </div>
-        		<div><h2>Player</h2></div>
+        		<div class="bottom">
+        			<h2>Player</h2>
+    			</div>
             </div>
         );
     }
@@ -83,9 +94,9 @@ var CurrentSong = React.createClass({
         return (
             <div className="current-song">
             	<img src={ this.props.album_url } />
-            	<div class="song-meta">
-	            	<h2 class="title">{ this.props.title }</h2>
-	            	<h3 class="artist">{ this.props.artist }</h3>
+            	<div className="song-meta">
+	            	<h2 className="title">{ this.props.title }</h2>
+	            	<h3 className="artist">{ this.props.artist }</h3>
             	</div>
             </div>
         );

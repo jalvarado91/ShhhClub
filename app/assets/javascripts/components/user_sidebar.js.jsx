@@ -10,8 +10,10 @@ var UserSidebar = React.createClass({
 
         return (
             <div className="user-sidebar">
-            	<h2>Users Here</h2>
-            	{ userNodes }
+            	<div className="users-container dynamicList">
+            		<h2>Users Here</h2>
+            		{ userNodes }
+            	</div>
 			</div>
         );
     }

@@ -13,6 +13,7 @@
  *= require normalize-rails
 
  *= require pages
+ *= require rooms
  *= require_self
  */
 
