@@ -1,13 +1,13 @@
-Shhhh Club
+Silent Club
 ===============
 
-**Shhhh Club** is an open silent disco platform so you can party with your friends and not worry about your gig gettind raided by the cops.
+**Silent Club** is an open silent disco platform so you can party with your friends and not worry about your gig gettind raided by the cops.
 
 
 ![Silent twerk](http://media.giphy.com/media/Q3yLGTu1dLpyE/giphy.gif)
 
 
-Shhhh Club is brought to you by The Loud Team.
+Silent Club is brought to you by The Loud Team.
 
 The Loud Team
 ---------------------
