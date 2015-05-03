@@ -5,7 +5,25 @@ var Room = React.createClass({
     		room_data: [],
     		song_data: {
     			title: ""
-    		}
+    		},
+    		current_users: [
+    			{
+    				name: "Juan Alvarado",
+    				image_thumb: "http://i.imgur.com/Xn2DAvm.png"
+    			},
+    			{
+    				name: "Miguel Ramos",
+    				image_thumb: "http://i.imgur.com/V7rRpg0.png"
+    			},
+    			{
+    				name: "Chris Scott",
+    				image_thumb: "http://i.imgur.com/wKhby3U.png"
+    			},
+    			{
+    				name: "Julissa Cotillo",
+    				image_thumb: "http://i.imgur.com/ww5oXqO.png"
+    			}
+    		]
     	};
   	},
 
@@ -40,13 +58,10 @@ var Room = React.createClass({
         				artist="Monogem"
     					album_url="https://i1.sndcdn.com/artworks-000081163804-gh5yfd-t500x500.jpg" />
             	</div>
-            	 
+            	<RoomSidebar>
+            		<UserSidebar users={this.state.current_users} />
+            	</RoomSidebar>
 	            <div>
-	            	<h2>Sidebar</h2>
-	            	<div>
-		            	<h3>Users</h3>
-		            	<ul><li>Jon Snow</li><li>Sansa Stark</li></ul>
-	            	</div>
 	            	<div>
 	            		<h3>Queue</h3>
 	            		<ul>

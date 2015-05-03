@@ -9,11 +9,16 @@ class RoomsController < ApplicationController
   end
    
   def show
-  	@room = Room.find(params[:id])
-   respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @events }
+    if request.xhr?
+      render :json => Room.find(params[:id]).to_json
+    else
+    	@room = Room.find(params[:id])
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render :json => @events }
     end
+  end
+
   end
 
   def new

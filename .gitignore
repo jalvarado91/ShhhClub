@@ -18,3 +18,4 @@
 
 # Ignore IDE Files
 /.idea
+.DS_Store
