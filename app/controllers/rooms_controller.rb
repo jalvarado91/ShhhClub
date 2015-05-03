@@ -17,11 +17,16 @@ class RoomsController < ApplicationController
    
   def show
 
-  	@room = Room.last
-   respond_to do |format|
+    @track = Soundcloudapi.track 292
+
+    @track_stream = @track.stream_url + '?' + {client_id: ENV['soundcloud_id']}.to_param
+
+    @room = Room.find(params[:id])
+    respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @room }
     end
+
 
   end
 

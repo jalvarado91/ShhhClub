@@ -12,6 +12,12 @@
     });
 
   </script>
+  <script src="https://connect.soundcloud.com/sdk.js"></script>
+  <script>
+    SC.initialize({
+      client_id: "<%= ENV['soundcloud_id'] %>"
+    });
+  </script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>

@@ -10,8 +10,10 @@
 			</div>
 		</div>
 	</div>
-	<%= react_component('Room', {:pollInterval=> 2000, :url => "/rooms/#{@room.id.to_s}"}) %>
+	<%=# react_component('Room', {:pollInterval=> 2000, :url => "/rooms/#{@room.id.to_s}"}) %>
 </div>
+
+<%= audio_tag @track_stream, controls: true %>
 
 <script type="text/javascript" charset="utf-8">
 
@@ -20,8 +22,7 @@
     var presenceChannel = pusher.subscribe("presence-room-" + room_id);
     presenceChannel.bind('pusher:subscription_succeeded', function(members) {
      alert(members.count)
-    })
-
+    });
   }
 
 </script>
