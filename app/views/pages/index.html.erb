@@ -1,6 +1,25 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
 
 
-<%= react_component('title') %>
+<div class="header">
+	<div class="logo">
+		<h1> Shhhh.club </h1>
+		<h2> Be Quiet and Dance </h2>
+	</div>	
+	<div class="login">
+		<div class="button">
+			<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :target => "_blank" %>
+		</div>
+	</div>
+</div>
+
+<div class="body">
+	<div class="hero">
+		
+	</div>
+</div>
+
+
+
+
+
 

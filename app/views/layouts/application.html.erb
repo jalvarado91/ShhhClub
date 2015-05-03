@@ -9,8 +9,10 @@
 </head>
 <body>
 
+
 <%= link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook) %>
 <%= link_to 'Sound Cloud Connect', user_omniauth_authorize_path(:soundcloud) %>
+
 
 <%= yield %>
 

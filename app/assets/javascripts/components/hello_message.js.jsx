@@ -10,7 +10,7 @@ var Timer = React.createClass({
     return {secondsElapsed: 0};
   },
   tick: function() {
-    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+    this.setState({secondsElapsed: this.state.secondsElapsed + 2});
   },
   componentDidMount: function() {
     this.interval = setInterval(this.tick, 1000);
@@ -24,3 +24,12 @@ var Timer = React.createClass({
     );
   }
 });
+
+var QBox = React.createClass({
+  render: function(){
+    return (
+      <div className="qbox"> WASSAAAPP </div>
+    );
+  }
+});
+
