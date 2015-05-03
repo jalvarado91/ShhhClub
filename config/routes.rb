@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/index'
   get 'pusher_auth' => 'pusher#auth'
+  post 'pusher_auth' => 'pusher#auth'
 
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks'}
 
