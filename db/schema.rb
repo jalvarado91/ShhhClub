@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20150502222132) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
-    t.integer  "room_id"
     t.string   "soundcloudtoken"
+    t.integer  "room_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
