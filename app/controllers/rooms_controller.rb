@@ -17,7 +17,9 @@ class RoomsController < ApplicationController
    
   def show
 
-    @track = Soundcloudapi.track 292
+    # @track = Soundcloudapi.track 292
+    @track_id = 188191774
+    @track = Soundcloudapi.track 188191774
 
     @track_stream = @track.stream_url + '?' + {client_id: ENV['soundcloud_id']}.to_param
 

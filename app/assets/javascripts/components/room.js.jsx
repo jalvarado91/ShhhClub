@@ -6,7 +6,9 @@ var Room = React.createClass({
     		song_data: {
     			title: "Follow You",
     			artist: "Monogem",
-    			album_art: "https://i1.sndcdn.com/artworks-000081163804-gh5yfd-t500x500.jpg"
+    			album_art: "https://i1.sndcdn.com/artworks-000081163804-gh5yfd-t500x500.jpg",
+                track_id: "186879560",
+                track_stream_url: ""
     		},
     		current_users: [
     			{
@@ -58,8 +60,70 @@ var Room = React.createClass({
 			}.bind(this)
 	    });
   	},
+
+  	loadSoundCloudData: function() {
+
+  		$.ajax({
+            url: 'http://api.soundcloud.com/resolve.json?url='+soundcloud_url+'&client_id=6071634b72ac609bca02841b84533438',
+			// url: 'http://api.soundcloud.com/tracks/'+this.props.track_id+'.json?client_id=6071634b72ac609bca02841b84533438',
+			dataType: 'json',
+			cache: false,
+			success: function(data) {
+                var album_art_url = data.artwork_url.replace('-large', '-t500x500');
+				this.setState({
+                    song_data : {
+                        title: data.title,
+                        artist: data.user.username,
+                        album_art: album_art_url,
+                        track_id: data.id,
+                        track_stream_url: 'https://api.soundcloud.com/tracks/'+data.id+'/stream?client_id=6071634b72ac609bca02841b84533438'
+                    }
+                });
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}.bind(this)
+	    });
+  	},
 	componentDidMount: function() {
 	    this.loadRoomFromServer();
+	    this.loadSoundCloudData();
+
+	    var room_id = this.props.room_id
+	    var presenceChannel = pusher.subscribe("presence-room-" + room_id);
+
+	    presenceChannel.bind('pusher:subscription_succeeded', function(members) {
+	     alert(members.count)
+	    }).bind(this);
+
+	    Channel = pusher.subscribe("private-room-" + room_id);
+
+	    Channel.bind('pusher:subscription_succeeded', function() {
+
+	      Channel.bind('client-player', function(data){
+
+	        console.log(data.action);
+
+	        if (data.action === "pause"){
+	          console.log('pausing');
+	          $('.player').trigger('pause');
+	        };
+	        if (data.action === "play"){
+	          console.log('play');
+	          $('.player').trigger('play');
+	        }
+
+	      });
+
+	    }).bind(this);
+
+        $('.player')[0].onpause = function(){
+	      Channel.trigger('client-player', {action: 'pause'})
+	    }
+	    $('.player')[0].onplay = function(){
+	      Channel.trigger('client-player', {action: 'play'})
+	    }
+
 	    setInterval(this.loadRoomFromServer, this.props.pollInterval);
 	},
     render: function () {
@@ -88,7 +152,11 @@ var Room = React.createClass({
                     </RoomSidebar>
             	</div>
         		<div className="bottom">
-        			<h2>Player</h2>
+        			<audio 
+        				controls="controls" 
+        				className="player" 
+        				src={this.state.track_stream_url != null? this.state.track_stream_url: this.props.track_stream}>
+    				</audio>
     			</div>
             </div>
         );
