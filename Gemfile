@@ -39,6 +39,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-soundcloud'
 gem 'soundcloud'
 gem 'pusher'
+gem 'autoprefixer-rails'
 
 
 

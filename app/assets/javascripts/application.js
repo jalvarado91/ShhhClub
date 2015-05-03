@@ -18,7 +18,11 @@
 //= require components
 //= require_tree .
 
-var pusher = new Pusher('ab3c98158c6fe5aeb9cd');
+var pusher = new Pusher('ab3c98158c6fe5aeb9cd', {
+  authTransport: 'jsonp',
+  authEndpoint: 'http://localhost:3000/pusher_auth'
+});
+
 
 // Enable pusher logging - don't include this in production
 Pusher.log = function(message) {
