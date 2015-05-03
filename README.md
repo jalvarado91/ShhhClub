@@ -14,7 +14,7 @@ The Loud Team
 
 **The Loud Team** is:
 
-- [**@Juan Alvarado**](https://twitter.com/jalvarado91_) <jalvarado91@gmail.com>
+- [**@Juan Alvarado**](https://twitter.com/jalvarado91) <jalvarado91@gmail.com>
 - [**@Julissa Estefania Cotillo**](https://twitter.com/jujuco_) <julissacotillo@gmail.com>
 - [**@Miguel Ramos**](https://twitter.com/mishingo_) <mr@mishingo.com>
 - [**@Chris Scott**](https://twitter.com/cyberstrike) <cyberstrike@gmail.com>
