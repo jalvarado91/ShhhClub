@@ -10,10 +10,10 @@
 			</div>
 		</div>
 	</div>
-	<%=# react_component('Room', {:pollInterval=> 2000, :url => "/rooms/#{@room.id.to_s}"}) %>
+	<%= react_component('Room', {:pollInterval=> 2000, :url => "/rooms/#{@room.id.to_s}"}) %>
 </div>
 
-<%= audio_tag @track_stream, controls: true %>
+<%= audio_tag @track_stream, controls: true, class:'player'%>
 
 <script type="text/javascript" charset="utf-8">
 
@@ -23,6 +23,35 @@
     presenceChannel.bind('pusher:subscription_succeeded', function(members) {
      alert(members.count)
     });
+
+    Channel = pusher.subscribe("private-room-" + room_id);
+
+    Channel.bind('pusher:subscription_succeeded', function() {
+
+      Channel.bind('client-player', function(data){
+
+        console.log(data.action);
+
+        if (data.action === "pause"){
+          console.log('pausing');
+          $('.player').trigger('pause');
+        };
+        if (data.action === "play"){
+          console.log('play');
+          $('.player').trigger('play');
+        }
+
+      });
+
+    });
+
+    $('.player')[0].onpause = function(){
+      Channel.trigger('client-player', {action: 'pause'})
+    }
+    $('.player')[0].onplay = function(){
+      Channel.trigger('client-player', {action: 'play'})
+    }
+
   }
 
 </script>
