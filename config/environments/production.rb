@@ -79,6 +79,7 @@ Rails.application.configure do
 
   # React Env Config
   config.react.variant = :development
+
   config.react.addons = true # defaults to falses
 
 end

@@ -3,10 +3,10 @@
 	<div class="side-logo">
 		<h1> silent.club </h1>
 	</div>
-	<div  tabindex="0">
+	<div >
 		<a class="createroom" href="#">+ create a new room</a>
 	</div>
-	<div class="create" tabindex="0">
+	<div class="create">
 	  <%= form_for(@room) do |f| %>
 		  <%= f.label :title%>
 		  <%= f.text_field :title%><br>
@@ -20,14 +20,14 @@
 		<% end %>
 	</div>
 	<div>
-	<ul id="locations">
-	<% @tenrooms.each do |room| %>
-	<li><%= room.title%></li>
-	<%end%>
-	</ul>
+		<ul id="locations">
+			<% @tenrooms.each do |room| %>
+			<li><%= room.title%></li>
+			<%end%>
+		</ul>
 	</div>
 </div>
 
-<div id="rooms">
+<div class="rooms">
 
 </div>

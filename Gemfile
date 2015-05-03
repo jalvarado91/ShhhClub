@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem "autoprefixer-rails"
 
 ### Libraries
 
@@ -39,6 +40,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-soundcloud'
 gem 'soundcloud'
 gem 'pusher'
+gem 'autoprefixer-rails'
+gem 'figaro' # Env Files
 
 
 

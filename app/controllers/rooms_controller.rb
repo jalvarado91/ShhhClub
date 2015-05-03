@@ -16,11 +16,13 @@ class RoomsController < ApplicationController
   end
    
   def show
+
   	@room = Room.last
    respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @room }
     end
+
   end
 
   def new

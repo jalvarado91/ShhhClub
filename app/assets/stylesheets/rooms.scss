@@ -4,3 +4,135 @@
 title {
 	color: blue; 
 }
+
+.room-view {
+	display: flex;
+	flex-direction: column;
+	.header-flex {
+		background-color: rgba(2, 2, 2, 0.57);
+		padding: 20px 32px;
+	}
+	background: #242323;
+	color: white;
+}
+
+.room-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	.container-bg {
+		-webkit-transition: all 0.2s ease;
+		  transition: all 0.2s ease;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 40%;
+		  height: 40%;
+		  background-repeat: no-repeat;
+		  background-position: 50% 50%;
+		  filter: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%2…%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3C%2Fsvg%3E#blur");
+		  -webkit-filter: blur(5px);
+		  transform-origin: top left;
+		  transform: scale(2.5, 2.5);
+		  -webkit-perspective: 1000;
+		  -ms-perspective: 1000;
+		  -webkit-backface-visibility: hidden;
+		  -ms-backface-visibility: hidden;
+	}
+	.top {
+		background: rgba(49, 48, 48, 0.35);
+		padding: 15px; 
+		z-index: 2;
+		h3 {
+			font-weight: 300;
+			font-size: 1.2em;
+		}
+	}
+	.bottom {
+		z-index: 2;
+	}
+	.middle-container {
+		padding: 15px;
+		display: flex;
+		flex-direction: row;
+		.current-container {
+			z-index: 2;
+			flex-grow: 3;
+			.current-song {
+				margin-top: 10px;
+				display: flex;
+				flex-direction: row;
+				position: relative;
+				.song-meta {
+					position: absolute;
+					transform: translate(-50%, -50%);
+					left: 70%;
+					top: 50%;
+					.title {
+						font-size: 2.1em;
+						margin-bottom: 10px;
+					}
+					.artist {
+						text-transform: uppercase;
+						font-weight: 300;
+						letter-spacing: 2px;
+						font-size: 1em;
+					}
+				}
+			}
+		}
+	}
+
+	.room-sidebar {
+		flex-grow: 2;
+		flex-direction: column;
+		display: flex;
+		.dynamicList {
+			bottom: 0;
+			left: 0;
+			overflow: auto;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.user-sidebar {
+			flex-grow: 1;
+			display: block;
+			position: relative;
+
+			.users-container{
+			
+			}
+			.sidebar-user {
+				display: flex;
+				padding: 10px 4px;
+				img {
+					border-radius: 100%;
+					margin-right: 15px;
+				}
+				span {
+					align-self: center;
+					font-size: 1.2em;
+					font-weight: 100;
+				}
+			}
+		}
+		.queue-sidebar {
+			flex-grow: 1;
+			display: block;
+			position: relative;
+			.sidebar-song {
+				padding: 15px 0;
+				span {
+					&.song-name {
+						font-size: 1.3em;
+						font-weight: bold;
+					}
+					display: block;
+					font-size: 1em;
+					font-weight: 300;
+				}
+			}
+		}
+	}
+}

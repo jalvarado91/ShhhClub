@@ -32,17 +32,14 @@ var getRooms = function(){
 		success: function(data){
 			console.log(data[0].title)
 			console.log(data);
-			for(var i=0; i< data.length; i++){
+			for(var i=data.length-1; i>=0; i--){
 				var roomtitle = data[i].title;
-
-					$("#rooms").append(
-						"<div class='room' style='background-img: url('http://img.youtube.com/vi/" + data[i].youtube_url + "/0.jpg') '>" +
-						"title: " + roomtitle +
-						"</div>"
+				var youtubeurl = "http://img.youtube.com/vi/"+data[i].youtube_url+"/0.jpg";
+					$(".rooms").append(
+						"<div class='room' style=background-image:url('"+ youtubeurl+"') >" +
+						"<a href='/rooms/"+data[i].id+"'>title: " + roomtitle +
+						"</a></div>"
 					);
-				
-				
-				
 			}
 
 		},
