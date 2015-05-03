@@ -17,6 +17,7 @@
 <%= yield %>
 
 <script type="text/javascript" charset="utf-8">
+
   var pusher = new Pusher('ab3c98158c6fe5aeb9cd', {
     authTransport: 'jsonp',
     authEndpoint: "http://" + "<%= request.env['HTTP_HOST'].to_s %>" + "/pusher_auth"
@@ -35,6 +36,16 @@
   channel.bind('my_event', function(data) {
     alert(data.message);
   });
+
+  if ($('#room.show')){
+    var room_id = <%= @room.id %>
+    var presenceChannel = pusher.subscribe("presence-room-" + room_id);
+    presenceChannel.bind('pusher:subscription_succeeded', function(members) {
+      alert(members.count)
+    })
+
+  }
+
 
 </script>
 
