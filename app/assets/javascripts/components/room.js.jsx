@@ -64,7 +64,7 @@ var Room = React.createClass({
   	loadSoundCloudData: function() {
 
   		$.ajax({
-            url: 'http://api.soundcloud.com/resolve.json?url='+soundcloud_url+'&client_id=6071634b72ac609bca02841b84533438',
+            url: 'http://api.soundcloud.com/resolve.json?url='+this.props.soundcloud_url+'&client_id=6071634b72ac609bca02841b84533438',
 			// url: 'http://api.soundcloud.com/tracks/'+this.props.track_id+'.json?client_id=6071634b72ac609bca02841b84533438',
 			dataType: 'json',
 			cache: false,
