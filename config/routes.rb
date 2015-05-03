@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
- resources :rooms
+  resources :rooms
  
   root 'pages#index'
   get 'pages/index'

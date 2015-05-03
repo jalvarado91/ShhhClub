@@ -2,41 +2,66 @@ class RoomsController < ApplicationController
   
   def index
   	@rooms = Room.all
-  	render :json => @rooms
+   respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @events }
+    end
   end
    
   def show
   	@room = Room.find(params[:id])
-  	render :json => @room
+   respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @events }
+    end
   end
 
   def new
   	@room = Room.new
+
+  respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @events }
+    end
   end
 
   def create
   	@room = Room.new room_params
   	@room.dj = current_user
-  	if @room.save!
-  		render :json => @room 
-  	end
+    if @room.save
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render :json => @events }
+      end
+    end
   end
 	 
   def edit
   	@room = Room.find(params[:id])
+    respond_to do |format|
+    format.html # index.html.erb
+    format.json { render :json => @events }
+    end
   end
 
   def update
   	@room = Room.find(params[:id])
   	@room.update room_params
   	if @room.save
-  	render :json => @room 
- 	end
+    	 respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @events }
+      end
+  	end
   end
 
   def destroy
   	@room = Room.find(params[:id])
   	@room.destroy
+   respond_to do |format|
+    format.html # index.html.erb
+    format.json { render :json => @events }
+    end
   end
  
  private

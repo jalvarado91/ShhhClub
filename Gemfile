@@ -36,6 +36,10 @@ gem 'breakpoint'
 
 gem 'devise' # Devise our users
 gem 'omniauth-facebook'
+gem 'omniauth-soundcloud'
+gem 'soundcloud'
+gem 'pusher'
+
 
 
 group :development, :test do
@@ -50,7 +54,6 @@ group :development, :test do
 end
 
 group :development do
-
   gem 'awesome_print'
   gem 'better_errors' # Better Errors
   gem 'binding_of_caller' # Better Debugging
