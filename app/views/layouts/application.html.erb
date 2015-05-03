@@ -4,6 +4,14 @@
   <title>Shhhh</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+
+    window.pusher = new Pusher("<%= Pusher.key %>", {
+      authTransport: 'jsonp',
+      authEndpoint: "<%= pusher_auth_url %>"
+    });
+
+  </script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -16,38 +24,7 @@
 
 <%= yield %>
 
-<script type="text/javascript" charset="utf-8">
 
-  var pusher = new Pusher('ab3c98158c6fe5aeb9cd', {
-    authTransport: 'jsonp',
-    authEndpoint: "http://" + "<%= request.env['HTTP_HOST'].to_s %>" + "/pusher_auth"
-  });
-
-
-  // Enable pusher logging - don't include this in production
-  Pusher.log = function(message) {
-    if (window.console && window.console.log) {
-      window.console.log(message);
-    }
-  };
-
-  var channel = pusher.subscribe('test_channel');
-
-  channel.bind('my_event', function(data) {
-    alert(data.message);
-  });
-
-  if ($('#room.show')){
-    var room_id = <%= @room.id %>
-    var presenceChannel = pusher.subscribe("presence-room-" + room_id);
-    presenceChannel.bind('pusher:subscription_succeeded', function(members) {
-      alert(members.count)
-    })
-
-  }
-
-
-</script>
 
 </body>
 </html>

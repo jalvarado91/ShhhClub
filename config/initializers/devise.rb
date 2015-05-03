@@ -238,8 +238,8 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.omniauth :facebook, '809825885765107', 'f90f313eb4d47c1267766bcd80a7ca16', :display => 'popup'
-  config.omniauth :soundcloud, '25cc17a15dbfaef9d51ce58a2bb45ae5', '142882331e233406ac9665fddcc0a2b2'
+  config.omniauth :facebook, ENV["facebook_id"], ENV["facebook_secret"], :display => 'popup'
+  config.omniauth :soundcloud, ENV["soundcloud_id"], ENV["soundcloud_secret"]
 
 
   # ==> Warden configuration
