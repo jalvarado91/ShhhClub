@@ -82,10 +82,10 @@ var Room = React.createClass({
 	        				artist={this.state.song_data.artist}
 	    					album_url={this.state.song_data.album_art} />
 	            	</div>
-	            	<RoomSidebar>
-	            		<UserSidebar users={this.state.current_users} />
-	            		<QueueSidebar songs={this.state.song_queue} />
-	            	</RoomSidebar>
+                    <RoomSidebar>
+                        <UserSidebar users={this.state.current_users} />
+                        <QueueSidebar songs={this.state.song_queue} />
+                    </RoomSidebar>
             	</div>
         		<div className="bottom">
         			<h2>Player</h2>
