@@ -4,7 +4,9 @@ var Room = React.createClass({
     	return {
     		room_data: [],
     		song_data: {
-    			title: ""
+    			title: "Follow You",
+    			artist: "Monogem",
+    			album_art: "https://i1.sndcdn.com/artworks-000081163804-gh5yfd-t500x500.jpg"
     		},
     		current_users: [
     			{
@@ -61,8 +63,13 @@ var Room = React.createClass({
 	    setInterval(this.loadRoomFromServer, this.props.pollInterval);
 	},
     render: function () {
+		var divStyle = {
+		  backgroundImage: 'url(' + this.state.song_data.album_art + ')'
+		};
+
         return (
-        	<div className="room-container">
+        	<div className="room-container" >
+        		<div className="container-bg" style={divStyle}></div>
         		<div className="top">
 	        		<h1>{ this.state.room_data.title }</h1>
 	        		<h3>{ this.state.room_data.description } </h3>
@@ -71,16 +78,16 @@ var Room = React.createClass({
 		            <div className="current-container">
 		            	<h3>Now Playing</h3>
 		            	<CurrentSong 
-		            		title="Follow You"
-	        				artist="Monogem"
-	    					album_url="https://i1.sndcdn.com/artworks-000081163804-gh5yfd-t500x500.jpg" />
+		            		title={this.state.song_data.title}
+	        				artist={this.state.song_data.artist}
+	    					album_url={this.state.song_data.album_art} />
 	            	</div>
 	            	<RoomSidebar>
 	            		<UserSidebar users={this.state.current_users} />
 	            		<QueueSidebar songs={this.state.song_queue} />
 	            	</RoomSidebar>
             	</div>
-        		<div class="bottom">
+        		<div className="bottom">
         			<h2>Player</h2>
     			</div>
             </div>

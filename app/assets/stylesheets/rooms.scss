@@ -19,19 +19,44 @@ title {
 .room-container {
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	.container-bg {
+		-webkit-transition: all 0.2s ease;
+		  transition: all 0.2s ease;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 40%;
+		  height: 40%;
+		  background-repeat: no-repeat;
+		  background-position: 50% 50%;
+		  filter: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%2…%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3C%2Fsvg%3E#blur");
+		  -webkit-filter: blur(5px);
+		  transform-origin: top left;
+		  transform: scale(2.5, 2.5);
+		  -webkit-perspective: 1000;
+		  -ms-perspective: 1000;
+		  -webkit-backface-visibility: hidden;
+		  -ms-backface-visibility: hidden;
+	}
 	.top {
-		background: lighten(#242323, 5%);
+		background: rgba(49, 48, 48, 0.35);
 		padding: 15px; 
+		z-index: 2;
 		h3 {
 			font-weight: 300;
 			font-size: 1.2em;
 		}
+	}
+	.bottom {
+		z-index: 2;
 	}
 	.middle-container {
 		padding: 15px;
 		display: flex;
 		flex-direction: row;
 		.current-container {
+			z-index: 2;
 			flex-grow: 3;
 			.current-song {
 				margin-top: 10px;
