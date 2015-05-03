@@ -85,6 +85,24 @@ var Room = React.createClass({
 			}.bind(this)
 	    });
   	},
+    handleSubmit: function ( event ) {
+        event.preventDefault();
+
+        var song_url = this.refs.song_url.getDOMNode().value.trim();
+
+        // validate
+        if (!song_url) {
+          return false;
+        }
+
+        // submit
+        this.props.soundcloud_url  = song_url;
+        this.loadSoundCloudData();
+
+        // reset form
+        this.refs.song_url.getDOMNode().value = "";
+    },
+
 	componentDidMount: function() {
 	    this.loadRoomFromServer();
 	    this.loadSoundCloudData();
@@ -139,6 +157,7 @@ var Room = React.createClass({
 	        		<h3>{ this.state.room_data.description } </h3>
         		</div>
         		<div className="middle-container">
+                
 		            <div className="current-container">
 		            	<h3>Now Playing</h3>
 		            	<CurrentSong 
@@ -147,6 +166,10 @@ var Room = React.createClass({
 	    					album_url={this.state.song_data.album_art} />
 	            	</div>
                     <RoomSidebar>
+                        <form ref="form" className="song-form" accept-charset="UTF-8" method="post" onSubmit={ this.handleSubmit }>
+                            <input ref="song_url" name="song[author]" placeholder="SoundCloud Url" />
+                            <button type="submit">Change Song</button>
+                        </form>
                         <UserSidebar users={this.state.current_users} />
                         <QueueSidebar songs={this.state.song_queue} />
                     </RoomSidebar>
